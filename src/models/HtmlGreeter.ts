@@ -1,14 +1,11 @@
 import Greeter from "./Greeter";
 
 export default class HtmlGreeter extends Greeter {
-  tagName?: string = "h1";
-  constructor(toSay: string, newTagName?: string) {
+  tagName: string;
+  constructor(toSay: string, newTagName: string = "h1") {
     super(toSay);
 
     this.tagName = newTagName;
-    if (this.tagName === undefined) {
-      this.tagName = "h1";
-    }
   }
   greet(htmlName: string): string {
     return `<${this.tagName}>${super.greet(htmlName)}</${this.tagName}>`;
